@@ -7,6 +7,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 import ForecastExtended from './components/ForecastExtended';
+import { createStore } from "redux";
 
 
 const cities = [
@@ -14,10 +15,15 @@ const cities = [
   'Bogota,col',
   'Paris,fr',
   'Milan,it',
-  'Barcelona,es',
+  'Madrid,es',
   'Miami,us',
   'Lima,pe'
 ];
+
+const store = createStore( () => {}, 
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+const setCity = value => ({type: 'setCity', value});
 
 class App extends Component {
 
@@ -28,6 +34,8 @@ class App extends Component {
   handleSelectionLocation = city => {
     this.setState({ city })
     console.log(`hundleSelectionLocation ${city}`);
+    
+    store.dispatch(setCity(city));
   }
 
   render() {
