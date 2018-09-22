@@ -7,7 +7,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 import ForecastExtended from './components/ForecastExtended';
-import { createStore } from 'redux';
+import { store } from './store';
 import { setCity } from './actions';
 
 
@@ -21,8 +21,7 @@ const cities = [
   'Lima,pe'
 ];
 
-const store = createStore( () => {}, 
-window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
 
 
 
